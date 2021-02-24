@@ -7,7 +7,7 @@ export default function Card({image, title, location, description, onPress}){
 
     return(
         <>
-            <TouchableOpacity style={ travelStyles.card }>
+            <TouchableOpacity onPress={onPress} style={ travelStyles.card }>
                 <Animated.View style={{ flexDirection: 'row'}}>
                     <View style={ travelStyles.cardImage }>
                         <Image style={{ width: '100%', height: '100%', borderRadius: 15 }} source={image}/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, Animated, Dimensions, Easing, Text, ScrollView, FlatList } from 'react-native';
+import { View, ImageBackground, Animated, Dimensions, Easing, Text, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 import { travelStyles } from '../styles/styles';
 import { styles } from '../styles/luxury';
 import Card from '../components/card';
@@ -59,6 +59,14 @@ export default class Luxury extends Component{
         this.AnimateUI();
     }
 
+    handlePress = (id) => {
+        // Find item by id
+        const card = this.state.cards.find((item) => item.id == id);
+
+        // Navigate to Details screen with the card data
+        this.props.navigation.navigate('Details', { card });
+    };
+
     render(){
         const AnimatedBackground= {
             height: this.state.alignment,
@@ -98,6 +106,6 @@ export default class Luxury extends Component{
                     )} keyExtractor={(item, index) => index.toString()} />
                 </Animated.View>
             </View>
-        )
+        );
     }
 }

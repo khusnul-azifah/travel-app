@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 // import { createAppContainer, createStackNavigator } from 'react-navigation';
 import MainScreen from './screens/mainScreen';
 import Luxury from './screens/luxury';
+import Details from './screens/details';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default class App extends Component{
                 >
                     <Screen name="mainScreen" component={MainScreen} />
                     <Screen name="Luxury" component={Luxury} />
+                    <Screen name="Details" component={Details} />
                 </Navigator>
             </NavigationContainer>
         );
