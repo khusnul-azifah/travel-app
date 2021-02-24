@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
     title: {
@@ -23,27 +23,25 @@ export const styles = StyleSheet.create({
 
     carousel: {
         marginVertical: 20,
-        justifyContent: 'center',
         alignItems: 'center',
+        height: height,
     },
 
     carouselCard: {
+        marginVertical: 15,
         left: 0,
-        marginHorizontal: 50,
-        width: width / 1.4,
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: width / 1.2,
     },
 
     carouselHeader: {
-        alignItems: 'center',
+        justifyContent: 'flex-start',
     },
 
     carouselHeaderText: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        justifyContent: 'center',
-        alignItems: 'center',
+        color: '#333',
+        justifyContent: 'flex-start',
     },
 
     carouselHeaderIndicator: {
@@ -57,17 +55,20 @@ export const styles = StyleSheet.create({
     },
 
     carouselBody: {
-        padding: 20,
+        padding: 0,
     },
 
     carouselData: {
+        marginVertical: 8,
         textAlign: 'justify',
-        fontSize: 16,
+        fontSize: 14,
+        color: '#333',
     },
 
     carouselButton: {
-        width: width / 2.5,
+        width: width / 1.3,
         height: 50,
+        bottom: -40,
         justifyContent: 'center',
         alignItems: 'center',
     },

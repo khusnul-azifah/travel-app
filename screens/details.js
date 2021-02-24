@@ -1,48 +1,15 @@
 import React, { Component } from 'react';
-import { View, Animated, Dimensions, ImageBackground, Easing, Text, ScrollView } from 'react-native';
+import { View, Animated, Dimensions, ImageBackground, Easing, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { styles } from '../styles/details';
 import SmallButton from '../components/smallButton';
 import CarouselCard from '../components/carouselCard';
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 export default class Details extends Component {
     state = {
         data: {},
-        // data: [
-        //     {
-        //         id: 1,
-        //         image: require('../assets/images/the-seychelles.jpg'),
-        //         title: 'Treasure Island', 
-        //         location: 'Indian Ocean', 
-        //         description: 'Her beauty is unrivaled and her fame, unwavering.',
-        //         detailedDescription: 'Mother Nature was unbelievably generous with the Seychelles, a fabled paradise whose islands lie scattered across the Indian Ocean.',
-        //     },
-        //     {
-        //         id: 2,
-        //         image: require('../assets/images/glacier.jpg'),
-        //         title: 'Like Heaven',
-        //         location: 'US County in Montana', 
-        //         description: 'Her beauty is unrivaled and her fame, unwavering.',
-        //         detailedDescription: 'With over 700 miles of trails, Glacier is a hikers paradise for adventurous visitors seeking wilderness and solitude.',
-        //     },
-        //     {
-        //         id: 3,
-        //         image: require('../assets/images/bora-bora.jpg'),
-        //         title: 'Sweet Paradise', 
-        //         location: 'Leeward Islands', 
-        //         description: 'Her beauty is unrivaled and her fame, unwavering.', 
-        //         detailedDescription: 'Undoubtedly the most celebrated island in the South Pacific, Bora Bora is French Polynesias leading lady. Her beauty is unrivaled and her fame, unwavering.',
-        //     },
-        //     {
-        //         id: 4,
-        //         image: require('../assets/images/tokyo.jpg'),
-        //         title: 'Paradise On Earth', 
-        //         location: 'Tokyo, Japan', 
-        //         description: 'Her beauty is unrivaled and her fame, unwavering.', 
-        //         detailedDescription: 'Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods.',
-        //     },
-        // ],
         liked: false,
         alignment: new Animated.Value(height),
     };
@@ -50,8 +17,8 @@ export default class Details extends Component {
     setInitialState = () => this.setState({ data: this.props.route.params.card });
 
     animateAlignment = () => Animated.timing(this.state.alignment, {
-        toValue: height / 1.7,
-        duration: 800,
+        toValue: height / 2,
+        duration: 1500,
         easing: Easing.back(),
         useNativeDriver: false,
     }).start();
@@ -118,27 +85,37 @@ export default class Details extends Component {
                         </View>
                     </ImageBackground>
                 </Animated.View>
-                <View style={styles.carousel}>
-                    <ScrollView 
-                        horizontal={true} 
-                        showsHorizontalScrollIndicator={false} 
-                        scrollEventThrottle={1500}
-                        contentOffset={{ x:0 }}
-                        pagingEnabled={true}
-                    >
+                <View style={{ height: height / 1.1 }}>
+                <ScrollView contentContainerStyle={{flexGrow: 1}}>
+                    <View style={styles.carousel}>
                         <CarouselCard 
                             header="Reservation Information" 
-                            data={this.state.data.paymentInfo}
+                            data={this.state.data.reservationInfo}
                         />
                         <CarouselCard 
                             header="Description" 
-                            data={this.state.data.detailedDescripton}
+                            data={this.state.data.detailedDescription}
                         />
                         <CarouselCard 
                             header="Information" 
-                            data={this.state.data.descripton}
+                            data={this.state.data.description}
                         />
-                    </ScrollView>
+                        <View 
+                            style={{ 
+                                bottom: 10,
+                            }}
+                        >
+                            <TouchableOpacity style={styles.carouselButton}>
+                                <LinearGradient 
+                                    style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 20, }} 
+                                    colors={['#db5d14','#db5d14']}
+                                >
+                                    <Text style={{ color: 'white', fontSize: 16 }}>Book Now!</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </ScrollView>
                 </View>
             </View>
         );

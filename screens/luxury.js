@@ -3,8 +3,9 @@ import { View, ImageBackground, Animated, Dimensions, Easing, Text, ScrollView, 
 import { travelStyles } from '../styles/styles';
 import { styles } from '../styles/luxury';
 import Card from '../components/card';
+import SmallButton from '../components/smallButton';
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 export default class Luxury extends Component{
     state={
@@ -18,6 +19,7 @@ export default class Luxury extends Component{
                 location: 'Indian Ocean', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.',
                 detailedDescription: 'Mother Nature was unbelievably generous with the Seychelles, a fabled paradise whose islands lie scattered across the Indian Ocean.',
+                reservationInfo: '3 Days 2 Night packages 900 USD per person',
             },
             {
                 id: 2,
@@ -26,6 +28,7 @@ export default class Luxury extends Component{
                 location: 'US County in Montana', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.',
                 detailedDescription: 'With over 700 miles of trails, Glacier is a hikers paradise for adventurous visitors seeking wilderness and solitude.',
+                reservationInfo: '3 Days 2 Night packages 500 USD per person',
             },
             {
                 id: 3,
@@ -33,7 +36,8 @@ export default class Luxury extends Component{
                 title: 'Sweet Paradise', 
                 location: 'Leeward Islands', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.', 
-                detailedDescription: 'Undoubtedly the most celebrated island in the South Pacific, Bora Bora is French Polynesias leading lady. Her beauty is unrivaled and her fame, unwavering.',
+                detailedDescription: 'Undoubtedly the most celebrated island in the South Pacific, Bora Bora is French Polynesias leading lady.',
+                reservationInfo: '3 Days 2 Night packages 1000 USD per person',
             },
             {
                 id: 4,
@@ -41,7 +45,8 @@ export default class Luxury extends Component{
                 title: 'Paradise On Earth', 
                 location: 'Tokyo, Japan', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.', 
-                detailedDescription: 'Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods.',
+                detailedDescription: 'Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples.',
+                reservationInfo: '3 Days 2 Night packages 800 USD per person',
             },
         ],
     };
@@ -56,7 +61,7 @@ export default class Luxury extends Component{
             }),
             Animated.timing(this.state.cardAlignment, {
                 toValue: 0,
-                duration: 1200,
+                duration: 800,
                 easing: Easing.ease,
                 useNativeDriver: false,
             }),
@@ -97,6 +102,14 @@ export default class Luxury extends Component{
                         <View style={ styles.textView }>
                             <Text style={ styles.title }>Luxury</Text>
                             <Text style={ styles.description }>Stunning Places</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', marginTop: 40 }}>
+                            <View style={{ flex: 0.9, justifyContent: 'flex-start', marginLeft: 20 }}>
+                               <SmallButton 
+                                    back={'<'}
+                                    onPress={() => this.props.navigation.navigate('mainScreen')}
+                                />
+                            </View>
                         </View>
                     </ImageBackground>
                 </Animated.View>
