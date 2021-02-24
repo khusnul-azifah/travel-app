@@ -4,7 +4,7 @@ import { travelStyles } from '../styles/styles';
 import InputSearch from '../components/inputSearch';
 import ImageButton from '../components/imageButton';
 
-const { width, height } = Dimensions.get('screen');
+const { width, height } = Dimensions.get('window');
 
 export default class MainScreen extends Component {
     state={

@@ -4,7 +4,7 @@ import { travelStyles } from '../styles/styles';
 import { styles } from '../styles/luxury';
 import Card from '../components/card';
 
-const { width, height } = Dimensions.get('screen');
+const { width, height } = Dimensions.get('window');
 
 export default class Luxury extends Component{
     state={
@@ -12,28 +12,36 @@ export default class Luxury extends Component{
         cardAlignment: new Animated.Value(400),
         cards: [
             {
+                id: 1,
                 image: require('../assets/images/the-seychelles.jpg'),
                 title: 'Treasure Island', 
-                location:'Indian Ocean', 
-                description:'Her beauty is unrivaled and her fame, unwavering.',
+                location: 'Indian Ocean', 
+                description: 'Her beauty is unrivaled and her fame, unwavering.',
+                detailedDescription: 'Mother Nature was unbelievably generous with the Seychelles, a fabled paradise whose islands lie scattered across the Indian Ocean.',
             },
             {
+                id: 2,
                 image: require('../assets/images/glacier.jpg'),
                 title: 'Like Heaven',
                 location: 'US County in Montana', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.',
+                detailedDescription: 'With over 700 miles of trails, Glacier is a hikers paradise for adventurous visitors seeking wilderness and solitude.',
             },
             {
+                id: 3,
                 image: require('../assets/images/bora-bora.jpg'),
                 title: 'Sweet Paradise', 
                 location: 'Leeward Islands', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.', 
+                detailedDescription: 'Undoubtedly the most celebrated island in the South Pacific, Bora Bora is French Polynesias leading lady. Her beauty is unrivaled and her fame, unwavering.',
             },
             {
+                id: 4,
                 image: require('../assets/images/tokyo.jpg'),
                 title: 'Paradise On Earth', 
                 location: 'Tokyo, Japan', 
                 description: 'Her beauty is unrivaled and her fame, unwavering.', 
+                detailedDescription: 'Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods.',
             },
         ],
     };
